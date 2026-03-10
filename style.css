@@ -1,0 +1,98 @@
+/* ---- Reset i podstawy ---- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+
+a {
+  color: #00ffd5;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+a:hover {
+  color: #ffdc00;
+}
+
+/* ---- Kontener ---- */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* ---- Header ---- */
+header {
+  text-align: center;
+  padding: 50px 0;
+}
+header h1 {
+  font-size: 3em;
+  color: #00ffd5;
+  text-shadow: 2px 2px #000;
+}
+header p {
+  font-size: 1.2em;
+  margin-top: 10px;
+  color: #ccc;
+}
+
+/* ---- Sekcje ---- */
+section {
+  margin-bottom: 50px;
+}
+
+h2 {
+  color: #ffdc00;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ffdc00;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* ---- Projekty ---- */
+ul.projects {
+  list-style: none;
+  margin-top: 10px;
+}
+ul.projects li {
+  background: rgba(0,0,0,0.5);
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+ul.projects li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,255,213,0.4);
+}
+
+/* ---- Social ---- */
+.social a {
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+/* ---- Kontakt ---- */
+#kontakt a {
+  color: #00ffd5;
+}
+#kontakt a:hover {
+  color: #ffdc00;
+}
+
+/* ---- Footer ---- */
+footer {
+  text-align: center;
+  padding: 30px 0;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  color: #aaa;
+  font-size: 0.9em;
+}
