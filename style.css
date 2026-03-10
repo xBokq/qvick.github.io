@@ -3,27 +3,31 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Orbitron', sans-serif;
 }
 
 body {
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-  color: #f0f0f0;
+  background: radial-gradient(circle at top, #0b0c1e, #1a0b3a 50%, #0b0c1e 100%);
+  color: #fff;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
+/* ---- Linki neon ---- */
 a {
-  color: #00ffd5;
+  color: #d800ff;
   text-decoration: none;
-  transition: color 0.3s;
+  text-shadow: 0 0 5px #d800ff, 0 0 10px #d800ff;
+  transition: all 0.3s ease;
 }
 a:hover {
-  color: #ffdc00;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
 }
 
 /* ---- Kontener ---- */
 .container {
-  max-width: 900px;
+  max-width: 1000px;
   margin: auto;
   padding: 20px;
 }
@@ -31,30 +35,38 @@ a:hover {
 /* ---- Header ---- */
 header {
   text-align: center;
-  padding: 50px 0;
+  padding: 60px 20px;
 }
 header h1 {
-  font-size: 3em;
-  color: #00ffd5;
-  text-shadow: 2px 2px #000;
+  font-size: 4em;
+  color: #d800ff;
+  text-shadow: 0 0 10px #d800ff, 0 0 20px #d800ff, 0 0 40px #d800ff;
+  animation: glow 2s infinite alternate;
 }
 header p {
-  font-size: 1.2em;
+  font-size: 1.3em;
+  color: #aaa;
   margin-top: 10px;
-  color: #ccc;
+}
+
+/* Glow animation */
+@keyframes glow {
+  from { text-shadow: 0 0 10px #d800ff, 0 0 20px #d800ff, 0 0 40px #d800ff; }
+  to { text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 80px #ff00ff; }
 }
 
 /* ---- Sekcje ---- */
 section {
   margin-bottom: 50px;
 }
-
 h2 {
-  color: #ffdc00;
+  color: #9b00ff;
+  font-size: 2em;
   margin-bottom: 20px;
-  border-bottom: 2px solid #ffdc00;
+  border-bottom: 2px solid #9b00ff;
   display: inline-block;
   padding-bottom: 5px;
+  text-shadow: 0 0 5px #9b00ff, 0 0 15px #9b00ff;
 }
 
 /* ---- Projekty ---- */
@@ -63,36 +75,51 @@ ul.projects {
   margin-top: 10px;
 }
 ul.projects li {
-  background: rgba(0,0,0,0.5);
-  padding: 20px;
-  margin-bottom: 15px;
-  border-radius: 10px;
+  background: rgba(50, 0, 50, 0.6);
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  border: 1px solid #9b00ff;
   transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 10px #9b00ff;
 }
 ul.projects li:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,255,213,0.4);
+  transform: translateY(-7px);
+  box-shadow: 0 0 20px #d800ff, 0 0 40px #d800ff;
 }
 
 /* ---- Social ---- */
 .social a {
-  margin: 0 10px;
+  margin: 0 15px;
   font-weight: bold;
+  font-size: 1.2em;
 }
 
 /* ---- Kontakt ---- */
 #kontakt a {
-  color: #00ffd5;
+  color: #d800ff;
 }
 #kontakt a:hover {
-  color: #ffdc00;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
 }
 
 /* ---- Footer ---- */
 footer {
   text-align: center;
-  padding: 30px 0;
+  padding: 40px 0;
   border-top: 1px solid rgba(255,255,255,0.2);
   color: #aaa;
   font-size: 0.9em;
+}
+
+/* ---- Dodatkowe neonowe efekty tła ---- */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('https://i.imgur.com/6a8fX7H.png') repeat; /* optional space/star texture */
+  opacity: 0.1;
+  pointer-events: none;
 }
