@@ -3,15 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Bio | @boku._.clicket</title>
+    <title>Cosmic Bio | @TwojNick</title>
     <style>
-        /* Fundamenty i tło kosmiczne */
+        :root {
+            /* Nowa, fioletowo-kosmiczna paleta */
+            --bg: #030305;
+            --main-purple: #6d28d9; /* Głęboki fiolet */
+            --light-purple: #a855f7; /* Jasny fiolet/neon */
+            --deep-space: #1e1b4b; /* Bardzo ciemny niebiesko-fioletowy */
+            --star-white: #f5f3ff;
+        }
+
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
-            color: white;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--star-white);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -19,108 +27,190 @@
             overflow: hidden;
         }
 
-        /* Animowane gwiazdy w tle */
-        .stars {
-            position: absolute;
+        /* Animowane gwiazdy i głęboki kosmos */
+        .space-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(109, 40, 217, 0.15), transparent 40%),
+                radial-gradient(circle at 70% 30%, rgba(30, 27, 75, 0.2), transparent 40%),
+                url('https://www.transparenttextures.com/patterns/stardust.png');
             z-index: -1;
-            animation: moveStars 100s linear infinite;
+            animation: moveStars 150s linear infinite;
         }
 
         @keyframes moveStars {
             from { background-position: 0 0; }
-            to { background-position: 1000px 1000px; }
+            to { background-position: 2000px 2000px; }
         }
 
-        /* Główny kontener (Glassmorphism) */
-        .container {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            border-radius: 20px;
+        /* Główna karta z fioletowo-kosmiczną ramką */
+        .card {
+            position: relative;
+            background: rgba(5, 5, 8, 0.85); /* Ciemniejsze, głębsze tło karty */
+            backdrop-filter: blur(25px);
+            padding: 60px 45px;
+            border-radius: 25px;
             text-align: center;
-            width: 350px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+            width: 320px;
+            /* Subtelna stała ramka dla struktury */
+            border: 1px solid rgba(168, 85, 247, 0.2); 
+            box-shadow: 0 0 60px rgba(109, 40, 217, 0.25);
+            z-index: 1;
+        }
+
+        /* FIOLETOWO-KOSMICZNY BORDER (Zastępuje RGB) */
+        .card::before {
+            content: "";
+            position: absolute;
+            top: -3px; left: -3px; right: -3px; bottom: -3px;
+            /* Gradient fiolet -> ciemny niebieski -> fiolet */
+            background: linear-gradient(45deg, 
+                var(--main-purple), 
+                var(--deep-space), 
+                var(--light-purple), 
+                var(--main-purple)
+            );
+            background-size: 300% 300%;
+            z-index: -1;
+            border-radius: 28px;
+            filter: blur(8px); /* Mocniejsze rozmycie dla efektu "mgławicy" */
+            opacity: 0.7; /* Bardziej widoczne, ale wciąż miękkie */
+            animation: cosmicGlow 8s ease infinite;
+        }
+
+        @keyframes cosmicGlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .profile-img {
-            width: 100px;
-            height: 100px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
-            border: 3px solid #7289da;
-            margin-bottom: 15px;
-            transition: transform 0.3s ease;
+            /* Fioletowa ramka wokół awatara */
+            border: 3px solid var(--light-purple);
+            padding: 3px;
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.6);
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            object-fit: cover; /* Zapewnia, że zdjęcie dobrze się skaluje */
         }
 
         .profile-img:hover {
-            transform: scale(1.1) rotate(5deg);
+            transform: scale(1.15) rotate(5deg);
         }
 
         h1 {
-            margin: 10px 0;
-            font-size: 24px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            margin: 20px 0 5px;
+            font-size: 28px;
+            /* Fioletowy neonowy blask dla tekstu */
+            text-shadow: 0 0 15px rgba(168, 85, 247, 0.9);
+            color: white;
         }
 
-        p {
-            color: #ccc;
-            font-size: 14px;
-            margin-bottom: 30px;
+        .status {
+            font-size: 13px;
+            color: #d8b4fe; /* Bardzo jasny fiolet */
+            margin-bottom: 25px;
+            letter-spacing: 1.5px;
+            font-weight: 300;
         }
 
         /* Przyciski */
         .links {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
         }
 
         .link {
             text-decoration: none;
             color: white;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 12px;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-            font-weight: bold;
+            /* Ciemno-fioletowe tło przycisku */
+            background: rgba(30, 27, 75, 0.4); 
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid rgba(168, 85, 247, 0.15);
+            transition: 0.3s;
         }
 
         .link:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid #7289da;
-            transform: translateY(-3px);
-            box-shadow: 0 0 15px rgba(114, 137, 218, 0.4);
+            background: rgba(109, 40, 217, 0.3);
+            border-color: var(--light-purple);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(109, 40, 217, 0.4);
         }
 
-        /* Kolory specyficzne dla social mediów */
-        .discord:hover { border-color: #7289da; color: #7289da; }
-        .youtube:hover { border-color: #ff0000; color: #ff0000; }
-        .instagram:hover { border-color: #e1306c; color: #e1306c; }
+        /* Odtwarzacz muzyki - również fioletowy */
+        .music-player {
+            margin-top: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: 0.3s;
+            color: #d8b4fe;
+            font-size: 13px;
+        }
+
+        .music-player:hover { opacity: 1; text-shadow: 0 0 10px var(--light-purple); }
+        
+        #play-icon { font-size: 18px; }
 
     </style>
 </head>
 <body>
 
-    <div class="stars"></div>
+    <div class="space-bg"></div>
 
-    <div class="container">
-        <img src="https://cdn.discordapp.com/attachments/1032758511911837736/1067179950886621315/ezgif.com-gif-maker.gif?ex=69c4ef07&is=69c39d87&hm=f5dff585ae279f2ab2e6debd9e69386252a73a594b70a00239343b3a3c191d9c" alt="Avatar" class="profile-img">
+    <div class="card">
+        <img src="https://via.placeholder.com/150/6d28d9/ffffff?text=Avatar" alt="Avatar" class="profile-img">
         
-        <h1>xBokq</h1>
-        <p>Eksplorator cyfrowego kosmosu 🚀</p>
+        <h1>TWÓJ NICK</h1>
+        <div class="status">DEEP SPACE EXPLORER 💜</div>
 
         <div class="links">
-            <a href="https://discord.gg/TWÓJ_LINK" target="_blank" class="link discord">DISCORD</a>
-            <a href="https://youtube.com/@TWÓJ_KANAŁ" target="_blank" class="link youtube">YOUTUBE</a>
-            <a href="https://instagram.com/TWÓJ_PROFIL" target="_blank" class="link instagram">INSTAGRAM</a>
+            <a href="https://discord.gg/TWÓJ_LINK" target="_blank" class="link">DISCORD</a>
+            <a href="https://youtube.com/@TWÓJ_KANAŁ" target="_blank" class="link">YOUTUBE</a>
+            <a href="#" class="link">INSTAGRAM</a>
             <a href="#" class="link">PORTFOLIO</a>
         </div>
+
+        <div class="music-player" onclick="toggleMusic()">
+            <span id="play-icon">▶</span>
+            <span id="track-name">Cosmic Lo-Fi (Click)</span>
+        </div>
     </div>
+
+    <audio id="bg-audio" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const audio = document.getElementById('bg-audio');
+        const icon = document.getElementById('play-icon');
+        const trackName = document.getElementById('track-name');
+
+        function toggleMusic() {
+            if (audio.paused) {
+                audio.play();
+                icon.innerText = "⏸";
+                trackName.innerText = "Playing Cosmic Vibes...";
+            } else {
+                audio.pause();
+                icon.innerText = "▶";
+                trackName.innerText = "Cosmic Lo-Fi (Paused)";
+            }
+        }
+    </script>
 
 </body>
 </html>
